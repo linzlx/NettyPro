@@ -20,6 +20,8 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
 
+        System.out.println("对应的channel"+ctx.channel()+"\n pipeline"+ctx.pipeline() +"\n通过pipeline获取channel"+ctx.pipeline().channel());
+
         //判断msg 是不是HttpRequest请求
         if(msg instanceof HttpRequest){
 

@@ -39,7 +39,7 @@ public class NettyServer {
                 //设置保持活动连接状态
                 .childOption(ChannelOption.SO_KEEPALIVE,true)
                 //给workerGroup de eventLoop 对应的管道设置处理器
-                //创建一个通道测试对象（匿名对象）
+                //创建一个通道测试对象（匿名对象） childHandler 对应 workerGroup       ,handler 对应 bossGroup
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     //给 pipeline 设置处理器
                     @Override
