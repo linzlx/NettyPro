@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GroupChatClient" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.study.netty.groupchat.GroupChatClient" />
+  <configuration default="false" name="NettyClient (1)" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.study.netty.codec2.NettyClient" />
     <module name="NettyPro" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.study.netty.groupchat.*" />
+        <option name="PATTERN" value="com.study.netty.codec2.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

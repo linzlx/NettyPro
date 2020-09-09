@@ -38,7 +38,7 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
         Channel channel = ctx.channel();
         //将该客户加入聊天的信息推送给其他在线的客户端
         //该方法会将ChannelGroup 中所有的Chanel你遍历 ，并发送
-        channelGroup.writeAndFlush("[客户端]"+channel.remoteAddress()+"加入聊天"+sdf.format(new Date()+"\n"));
+        channelGroup.writeAndFlush("[客户端]"+channel.remoteAddress()+"加入聊天"+sdf.format(new Date())+"\n");
         channelGroup.add(channel);
 
         channels.put("id100",channel);

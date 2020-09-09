@@ -1,38 +1,38 @@
-package com.study.netty.http;
+package com.study.netty.inboundhandlerandoutboundhandler;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * @author zzy
- * @time 2020-09-03 13:59)
+ * @time 2020-09-08 9:55)
  */
-public class TestServer {
+public class MyServer {
     public static void main(String[] args) throws Exception{
 
-        EventLoopGroup boosGroup = new NioEventLoopGroup(1);
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            ServerBootstrap b = new ServerBootstrap();
 
-            serverBootstrap.group(boosGroup,workerGroup)
-                    //使用NioSocketChannel 作为服务器通道的实现
+            b.group(bossGroup,workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new TestServerInitializer());
+                    .childHandler(new MyServerInitializer());
 
-            ChannelFuture channelFuture = serverBootstrap.bind(6667).sync();
 
+            ChannelFuture channelFuture = b.bind(6668).sync();
             channelFuture.channel().closeFuture().sync();
 
-
         }finally {
-            boosGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
+
+
+
     }
 }
